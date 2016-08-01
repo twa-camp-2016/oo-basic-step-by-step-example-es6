@@ -8,7 +8,7 @@ var expect =  chai.expect;
 chai.use(sinonChai);
 import Person from "../../src/practice_6/person";
 import Student from "../../src/practice_6/student";
-import Worker from "../../src/practice_6/worker";
+import Worker from "../../src/practice_6/teacher";
 
 describe("Person", ()=>{
     it("should have field name and age", ()=>{
@@ -57,9 +57,16 @@ describe("Person", ()=>{
 
             var introduce = teacher.introduce();
 
-            expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I have a job.");
+            expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach No Class.");
 
         });
+        it("should overwrite Person introduce, introduce with field", ()=>{
+            var teacher = new Teacher("Tom", 21, 2);
 
+            var introduce = teacher.introduce();
+
+            expect(introduce).to.equal("My name is Tom. I am 21 years old. I am a Teacher. I teach Class 2.");
+
+        });
     });
 });
